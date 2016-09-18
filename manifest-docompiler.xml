@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>5e225eac-b52c-48d8-b90d-324d916f8f04</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>BigRedHacks</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Docompiler"/>
+  <Description DefaultValue="Inline Compiler and Interpreter for Word"/>
+
+  <IconUrl DefaultValue="https://i.imgur.com/oZFS95h.png" />
+  <Hosts>
+    <Host Name="Document"/>
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:8443/home/home.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  
+ <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">   
+    <Hosts>
+      <!--Each host can have a different set of commands. Cool huh!? -->
+      <!-- Workbook=Excel Document=Word Presentation=PowerPoint -->
+      <!-- Make sure the hosts you override match the hosts declared in the top section of the manifest -->
+      <Host xsi:type="Document">
+        <!-- Form factor. Currenly only DesktopFormFactor is supported. We will add TabletFormFactor and PhoneFormFactor in the future-->
+        <DesktopFormFactor>
+
+          
+          <!--Function file is an html page that includes the javascript where functions for ExecuteAction will be called. 
+            Think of the FunctionFile as the "code behind" ExecuteFunction-->
+          <FunctionFile resid="BigRedHacks.FunctionFile.Url" />
+                    <!--PrimaryCommandSurface==Main Office Ribbon-->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <!--Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab -->
+            <!-- Documentation includes all the IDs currently tested to work -->
+            <OfficeTab id="TabHome">
+        <!--Group. Ensure you provide a unique id. Recommendation for any IDs is to namespace using your company name-->
+              <Group id="BigRedHacks.Tab1.Group1">
+                 <!--Label for your group. resid must point to a ShortString resource -->
+                <Label resid="BigRedHacks.Tab1.GroupLabel" />
+                <Icon>
+                <!-- Sample Todo: Each size needs its own icon resource or it will look distorted when resized -->
+                <!--Icons. Required sizes 16,31,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX -->
+                <!--Use PNG icons and remember that all URLs on the resources section must use HTTPS -->
+                  <bt:Image size="16" resid="BigRedHacks.TaskpaneButton.Icon" />
+                  <bt:Image size="32" resid="BigRedHacks.TaskpaneButton.Icon" />
+                  <bt:Image size="80" resid="BigRedHacks.TaskpaneButton.Icon" />
+                </Icon>
+                
+                <!--Control. It can be of type "Button" or "Menu" -->
+                <Control xsi:type="Button" id="BigRedHacks.FunctionButton">
+                <!--Label for your button. resid must point to a ShortString resource -->
+                  <Label resid="BigRedHacks.FunctionButton.Label" />
+                  <Supertip>
+                     <!--ToolTip title. resid must point to a ShortString resource -->
+                    <Title resid="BigRedHacks.FunctionButton.Label" />
+                     <!--ToolTip description. resid must point to a LongString resource -->
+                    <Description resid="BigRedHacks.FunctionButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="BigRedHacks.FunctionButton.Icon" />
+                    <bt:Image size="32" resid="BigRedHacks.FunctionButton.Icon" />
+                    <bt:Image size="80" resid="BigRedHacks.FunctionButton.Icon" />
+                  </Icon>
+
+                  <!--Look at the FunctionFile.html page for reference on how to implement the function -->
+
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="BigRedHacks.FunctionFile.Home" />
+                  </Action>
+                </Control>
+
+              </Group>
+
+            </OfficeTab>
+          </ExtensionPoint>
+
+          <ExtensionPoint xsi:type="ContextMenu">
+            <OfficeMenu id="ContextMenuText">
+              <Control xsi:type="Button" id="BigRedHacks.ContextMenu.Control">
+                <Label resid="BigRedHacks.FunctionButton.Label" />
+                <Supertip>
+                  <Title resid="BigRedHacks.FunctionButton.Label" />
+                  <Description resid="BigRedHacks.FunctionButton.Tooltip" />
+                </Supertip>
+                <Icon>
+                  <bt:Image size="16" resid="BigRedHacks.FunctionButton.Icon" />
+                  <bt:Image size="32" resid="BigRedHacks.FunctionButton.Icon" />
+                  <bt:Image size="80" resid="BigRedHacks.FunctionButton.Icon" />
+                </Icon>
+                <Action xsi:type="ShowTaskpane">
+                  <SourceLocation resid="BigRedHacks.FunctionFile.Home" />
+                </Action>
+
+              </Control>
+            </OfficeMenu>
+         </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+    <bt:Image id="BigRedHacks.TaskpaneButton.Icon" DefaultValue="https://i.imgur.com/FkSShX9.png" />
+    <bt:Image id="BigRedHacks.FunctionButton.Icon" DefaultValue="https://i.imgur.com/qDujiX0.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="BigRedHacks.FunctionFile.Home" DefaultValue="https://localhost:8443/home/home.html" />
+        <bt:Url id="BigRedHacks.FunctionFile.Url" DefaultValue="https://localhost:8443/FunctionFile.html" />
+         <!--LearnMore URL currently not used -->
+        <bt:Url id="BigRedHacks.GetStarted.LearnMoreUrl" DefaultValue="https://commandsimple.azurewebsites.net/GetStarted.html">
+        </bt:Url>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="BigRedHacks.FunctionButton.Label" DefaultValue="Open Compiler" />
+        <bt:String id="BigRedHacks.TaskpaneButton.Label" DefaultValue="Show Taskpane" />
+
+        <bt:String id="BigRedHacks.Tab1.GroupLabel" DefaultValue="Docompiler" />
+         <bt:String id="BigRedHacks.GetStarted.Title" DefaultValue="Simple add-in was succesfully loaded">
+          <bt:Override Locale="ja-jp" Value="JA-JP Get Started Title" />
+        </bt:String>      
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="BigRedHacks.FunctionButton.Tooltip" DefaultValue="Click to Execute Function" />
+        <bt:String id="BigRedHacks.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
+          <bt:String id="BigRedHacks.GetStarted.Description" DefaultValue="Get going by opening TEST TAB on the Ribbon">
+          <bt:Override Locale="ja-jp" Value="JA-JP Get Started Title" />
+        </bt:String>  
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

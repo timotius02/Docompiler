@@ -1,0 +1,98 @@
+/* Common app styling */
+
+#content-header {
+    background: #2b579a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Fixed header height */
+    overflow: hidden; /* Disable scrollbars for header */
+    color: #fff;
+}
+
+#content-main {
+    background: #fff;
+    position: fixed;
+    top: 80px; /* Same value as #content-header's height */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; /* Enable scrollbars within main content section */
+}
+
+.padding {
+    padding: 15px;
+}
+
+#notification-message {
+    background-color: #fff !important;
+    position: absolute;
+    width: 100%;
+    min-height: 80px;
+    right: 0;
+    z-index: 100;
+    bottom: 0;
+    display: none; /* Hidden until invoked */
+    border: 1px solid #C8C8C8;
+    overflow: hidden;
+}
+
+#notification-message-body {
+    font-family: 'Inconsolata', monospace;
+    padding: 15px;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 40px;
+    
+    max-height: 70px;
+    overflow: auto;
+    height: 100%;
+}
+
+#notification-message-header {
+    color: #fff;
+    background-color: #A6A6A6;
+    /*border: 1px solid #C8C8C8;*/
+    padding: 13px ;
+
+    display: block;
+    font-size: small;
+    position: fixed;
+    width: 100%;
+}
+
+#notification-message-close {
+    background-image: url("../Images/Close.png");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    position: fixed;
+    right: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.welcome {
+    color: #fff;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.logo-svg {
+    position: absolute;
+    top: 0;
+    left: 130px;
+    z-index: 999;
+}
+
+pre {
+    max-height: 270px !important;
+    overflow: auto;
+    
+}
+
+#get-data-from-selection {
+    margin-top: 10px;
+}

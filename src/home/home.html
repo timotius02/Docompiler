@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+  <script src="interact.min.js"></script>
+  <link href="../../content/Office.css" rel="stylesheet" type="text/css" />
+  <link href="../../bower_components/microsoft.office.js/styles/OfficeThemes.css" rel="stylesheet" type="text/css" />
+  <link href="//appsforoffice.microsoft.com/fabric/1.0/fabric.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <link href="prism.css" rel="stylesheet" />
+  <!--<link href="//appsforoffice.microsoft.com/fabric/1.0/fabric.components.min.css" rel="stylesheet">-->
+  <script src="//appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+  <!-- To enable offline debugging using a local reference to jQuery.js Office.js, use: -->
+  <!-- <script src="../../bower_components/jquery/jquery.min.js"></script>  -->
+  <!-- <script src="../../bower_components/microsoft.office.js/scripts/Office/1/office.js"></script>  -->
+  <!-- <script src="../../content/fabric.min.css"></script>  -->
+  <!-- <script src="../../content/fabric.components.min.css"></script>  -->
+  <!-- <script src="../../scripts/jquery.fabric.min.js"></script>  -->
+  <script src="../../scripts/MicrosoftAjax.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+  <link href="../App.css" rel="stylesheet" type="text/css" />
+  <script src="../App.js"></script>
+
+  <link href="Home.css" rel="stylesheet" type="text/css" />
+  <script src="Home.js"></script>
+</head>
+
+<body>
+  <div id="content-header">
+    <div class="">
+      <h1 class="ms-font-xxl welcome">//  Word Docompiler</h1>
+
+<!-- 
+      <svg class="logo-svg" width="338px" height="76px" >
+        <path class="logo-m-left-2" fill="#fff" d="M155.865,69.053h-14.957L111.502,7h13.763L155.865,69.053z"/>
+        <path class="logo-m-right" fill="#fff" d="M192.252,69.053h-14.957L147.89,7h13.763L192.252,69.053z"/>
+        <path class="logo-m-left-1" fill="#fff" d="M111.328,7h13.763L95.686,69.053H80.729L111.328,7z"/>
+        <polygon class="logo-c"  fill="#fff" points="69.24,7.032 7.187,32.277 7.187,32.421 7.187,43.632 7.187,43.776 69.24,69.021 69.24,56.681
+          21.526,38.026 69.24,19.372 "/>
+      </svg> -->
+    </div>
+  </div>
+  <div id="content-main">
+    <div class="padding">
+      <pre><code id="code" class="language-javascript">/* Highlight code to Run */</code></pre>
+      <button id="get-data-from-selection">Run Selected Code</button>
+
+
+
+<!--       <p style="margin-top: 50px;">
+        <a target="_blank" href="http://dev.office.com/code-samples#?filters=office%20add-ins">Find more samples online...</a>
+      </p> -->
+    </div>
+  </div>
+  <script src="prism.js"></script>
+</body>
+
+</html>
